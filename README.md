@@ -4,7 +4,7 @@
 
 Just go [here](http://znalbert.github.io/fend_p3/) and the game will load.  It's always in a play state.  Once you run out of lives it just resets your score, lives, and the bug speed.
 
-To control the player use the arrow keys on your keyboard and try to get to the water without running into any bugs!
+Use the arrow keys on your keyboard to control the player, and try to get to the water without running into any bugs!
 
 ##More Info About This Project
 
