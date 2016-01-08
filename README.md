@@ -1,5 +1,10 @@
-frontend-nanodegree-arcade-game
-===============================
+#frontend-nanodegree-arcade-game
+
+##Instructions
+
+Just go [here](http://znalbert.github.io/fend_p3/) and the game will load.  It's always in a play state.  Once you run out of lives it just resets your score, lives, and the bug speed.
+
+##More Info About This Project
 
 Students should use this [rubric](https://www.udacity.com/course/viewer/#!/c-nd001/l-2696458597/m-2687128535) for self-checking their submission.
 
