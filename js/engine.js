@@ -26,7 +26,7 @@ var Engine = (function(global) {
         lastTime;
 
     canvas.width = 505;
-    canvas.height = 606;
+    canvas.height = 636;
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
@@ -80,7 +80,6 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -135,8 +134,29 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
+		
+		// Rend the text for the player lives and score
+		ctx.font='18px Arial';
+		
+		ctx.fillStyle='blue';
+		ctx.fillRect(0, 0, 505, 50);
+		ctx.clearRect(0, 0, 505, 50);
+		ctx.fillText('Drowned sacrifices for the greater good: ' + player.score,
+			10, 35);
+	
+		ctx.fillStyle='red';
+		ctx.fillRect(0, 600, 505, 50);
+		ctx.clearRect(0, 600, 505, 50);	
+		ctx.fillText('Kids needed for bug spell of world domination: ' +
+			player.lives, 10, 620);
 
-        renderEntities();
+		renderEntities();
+		
+		// Resets lives and score when player hits 0.
+		if (player.lives === 0) {
+			player.init();
+		}
+
     }
 
     /* This function is called by the render function and is called on each game
@@ -174,6 +194,8 @@ var Engine = (function(global) {
         'images/char-boy.png'
     ]);
     Resources.onReady(init);
+	
+	//function renderHUD(){
 
     /* Assign the canvas' context object to the global variable (the window
      * object when run in a browser) so that developers can use it more easily
