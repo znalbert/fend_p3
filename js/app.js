@@ -28,7 +28,7 @@ Enemy.prototype.update = function(dt) {
 	
 	if (this.x > 505) {
 		allEnemies.delete(this);
-		allEnemies.add(new Enemy);
+		allEnemies.add(new Enemy());
 	}
 	
 	// If player collides with a bug the player loses a life
@@ -56,12 +56,12 @@ var Player = function() {
 	this.init();
 	this.x = COLUMNWIDTH * this.column;
 	this.y = ROWHEIGHT * this.row - ROWOFFSET;
-}
+};
 
 Player.prototype.startPos = function(){
 	this.row = 5;
 	this.column = 2;
-}
+};
 
 Player.prototype.init = function(){
 	this.lives = 3;
@@ -76,7 +76,7 @@ Player.prototype.handleInput = function(key) {
 			this.row -= 1;
 			// When the player reaches the water they get
 			// reset to the starting position and a point.
-			if (this.row == 0) {
+			if (this.row === 0) {
 				this.startPos();
 				this.score++;
 			}
@@ -110,11 +110,11 @@ Player.prototype.render = function() {
 // Put enemies in a set because of functionality I'm hoping to 
 // build later.
 var allEnemies = new Set();
-for (i = 0; i < NUMBUGS; i++) {
-	allEnemies.add(new Enemy);
-};
+for (var i = 0; i < NUMBUGS; i++) {
+	allEnemies.add(new Enemy());
+}
 
-var player = new Player;
+var player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method.
