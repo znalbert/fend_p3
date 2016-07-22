@@ -134,24 +134,24 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-		
+
 		// Rend the text for the player lives and score
 		ctx.font='18px Arial';
-		
+
 		ctx.fillStyle='blue';
 		ctx.fillRect(0, 0, 505, 50);
 		ctx.clearRect(0, 0, 505, 50);
-		ctx.fillText('Drowned sacrifices for the greater good: ' + player.score,
+		ctx.fillText('Score: ' + player.score,
 			10, 35);
-	
+
 		ctx.fillStyle='red';
 		ctx.fillRect(0, 600, 505, 50);
-		ctx.clearRect(0, 600, 505, 50);	
-		ctx.fillText('Kids needed for bug spell of world domination: ' +
+		ctx.clearRect(0, 600, 505, 50);
+		ctx.fillText('Lives: ' +
 			player.lives, 10, 620);
 
 		renderEntities();
-		
+
 		// Resets lives and score when player hits 0.
 		if (player.lives === 0) {
 			player.init();
@@ -194,7 +194,7 @@ var Engine = (function(global) {
         'images/char-boy.png'
     ]);
     Resources.onReady(init);
-	
+
 	//function renderHUD(){
 
     /* Assign the canvas' context object to the global variable (the window
